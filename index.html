@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CJ-Roupas</title>
+     <!-- Google Web Fonts -->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wdth,wght@0,75..100,300..800;1,75..100,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet"> 
+
+     <!-- Icon Font Stylesheet -->
+     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+
+     <!-- Customized Bootstrap Stylesheet -->
+     <link href="css/bootstrap.min.css" rel="stylesheet">
+
+     <!-- Template Stylesheet -->
+     
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-T3A..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+</head>
+<body>
+
+   <!-- Navbar e Carrossel -->
+<div class="container-fluid position-relative p-0">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top" style="background: transparent; z-index: 1000;">
+        <a href="#" class="navbar-brand d-flex align-items-center">
+            <img src="img/logo.png" alt="Logo" class="logo-img">
+            <h1 class="logo-text ms-2 mb-0">CJ-Roupas</h1>
+        </a>
+        
+        <div class="navbar-nav ms-auto py-0">
+            <!-- Botão de pesquisa -->
+<button class="btn btn-primary btn-md-square d-flex flex-shrink-0 mb-3 mb-lg-0 rounded-circle me-3 botao" data-tooltip="Pesquisar produtos" data-bs-toggle="modal" data-bs-target="#searchModal">
+  <i class="fas fa-search"></i>
+</button>
+
+<!-- Botão de experiencia -->
+<button class="btn btn-secondary btn-md-square d-flex flex-shrink-0 mb-3 mb-lg-0 rounded-circle me-3 botao" data-tooltip="Sugestões para você" onclick="pegarSugestao()">
+  <i class="fas fa-star"></i>
+</i>
+</button>
+
+<!-- Botão de produtos -->
+<button class="btn btn-secondary btn-md-square d-flex flex-shrink-0 mb-3 mb-lg-0 rounded-circle me-3 botao" data-tooltip="Ver produtos" onclick="loadProducts()">
+  <i class="fas fa-box"></i>
+</button>
+
+        </div>
+    </nav>
+
+    <!-- Carrossel -->
+    <div class="carousel-container">
+        <div id="smallCarousel" class="carousel slide" data-bs-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-bs-target="#smallCarousel" data-bs-slide-to="0" class="active"></li>
+                <li data-bs-target="#smallCarousel" data-bs-slide-to="1"></li>
+                <li data-bs-target="#smallCarousel" data-bs-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="./img/carrosel.jpeg" class="d-block w-100" alt="Slide 1">
+                </div>
+                <div class="carousel-item">
+                    <img src="./img/carrosel2.png" class="d-block w-100" alt="Slide 2">
+                </div>
+                <div class="carousel-item">
+                    <img src="./img/carrosel3.jpg" class="d-block w-100" alt="Slide 3">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#smallCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#smallCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+</div>
+ <div class="filters-container">
+    <h3>Filtrar Produtos</h3>
+    
+    <!-- Combobox de Categoria -->
+    <select id="filtroCategoria">
+        <option value="">Todas as Categorias</option>
+        <option value="camiseta">Camiseta</option>
+        <option value="jaqueta">Jaqueta</option>
+        <option value="moletom">Moletom</option>
+        <option value="tenis">Tênis</option>
+        <option value="calca">Calça</option>
+    </select>
+
+    <!-- Combobox de Tamanho -->
+    <select id="filtroTamanho">
+        <option value="">Todos os Tamanhos</option>
+        <option value="P">P</option>
+        <option value="M">M</option>
+        <option value="G">G</option>
+        <option value="36">36</option>
+        <option value="37">37</option>
+        <option value="38">38</option>
+        <option value="39">39</option>
+        <option value="40">40</option>
+    </select>
+
+    <!-- Combobox de Faixa de Preço -->
+    <select id="filtroPreco">
+        <option value="">Todos os Preços</option>
+        <option value="50">Até R$50</option>
+        <option value="150">Até R$150</option>
+        <option value="999">Acima de R$150</option>
+    </select>
+</div>
+<div id="sugestao" style="margin-top: 20px;">
+   
+  <!-- Aqui vai aparecer a sugestão -->
+</div>
+
+        <!-- Modal Search Start -->
+        <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-fullscreen">
+                <div class="modal-content rounded-0">
+                    <div class="modal-header">
+                        <h4 class="modal-title text-secondary mb-0" id="exampleModalLabel">Buscar por palavra-chave</h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body d-flex align-items-center">
+                        <div class="input-group w-75 mx-auto d-flex">
+                            <input type="search" class="form-control p-3" id="search-box" placeholder="Buscar produtos..."  autocomplete="off">
+                            <span id="search-icon-1" class="input-group-text p-3"><i class="fa fa-search"></i></span>
+                        </div>
+                        <!-- Sugestões de pesquisa -->
+                        <div id="suggestions" class="suggestions-box"></div>
+                        <!-- Histórico de pesquisa -->
+                        <div id="search-history" class="suggestions-box mt-3">
+                   
+                            <ul id="history-list"></ul>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal Search End -->
+    </div>
+
+    <!-- Produtos Container -->
+    <div id="produtos" class="produtos-container"></div>
+
+    <script src="script.js"></script>
+    <!-- Bootstrap JS and Popper.js -->
+  <!-- Bootstrap JS and Popper.js -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
