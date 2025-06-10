@@ -1,0 +1,269 @@
+/* Garante que a navbar tenha altura suficiente */
+.navbar {
+    height: 80px;
+    align-items: center !important; /* Centraliza verticalmente */
+}
+
+/* Logo personalizada */
+.logo-img {
+    height: 150px; /* pode ajustar aqui o tamanho */
+    width: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Texto da logo */
+.logo-text {
+    color: #7f4f24;
+    font-size: 30px;
+    font-weight: bold;
+    font-family: 'Playfair Display', serif;
+}
+
+/* Produtos */
+.produtos-container {
+    display: flex;
+    flex-wrap: wrap; /* Permite quebra para a próxima linha */
+    justify-content: space-between; /* Espaça os itens corretamente */
+    gap: 20px; /* Espaçamento entre os produtos */
+    padding: 40px;
+    margin: 70px auto; /* Centraliza o container */
+
+    max-width: 1200px; /* Limita a largura para melhor alinhamento */
+    margin-top: 5%;
+}
+
+/* Cada item do produto */
+.produto-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Centraliza o conteúdo */
+    width: 30%; /* Define 3 produtos por linha */
+    min-width: 250px; /* Garante que os itens não fiquem muito pequenos */
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+
+/* Nome do produto */
+.produto-nome {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* Preço */
+.produto-preco {
+    font-size: 16px;
+    font-weight: bold;
+    color: #f54100;
+    margin-top: 10px;
+}
+
+/* Ajuste para telas menores */
+@media (max-width: 900px) {
+    .produto-item {
+        width: 45%; /* 2 itens por linha em telas menores */
+    }
+}
+
+@media (max-width: 600px) {
+    .produto-item {
+        width: 100%; /* 1 item por linha em telas muito pequenas */
+    }
+}
+
+
+.suggestion-item {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #ddd;
+}
+
+.suggestion-item:hover {
+    background: #f1f1f1;
+}
+
+
+
+
+
+
+.produto img {
+    width: 180px;  /* Largura fixa */
+    height: 180px; /* Altura fixa */
+    object-fit: cover; /* Mantém a proporção cortando a imagem */
+    border-radius: 5px;
+}
+.carousel-container {
+    width: 100%; /* Ocupa a largura total da tela */
+    height: 300px; /* Define a altura menor */
+    overflow: hidden; /* Garante que não haja rolagem vertical */
+}
+
+.carousel-inner img {
+    width: 100%;
+    height: 300px; /* Mantém a altura reduzida */
+    object-fit: cover; /* Faz a imagem preencher o espaço sem distorcer */
+}
+.navbar {
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.5); /* Fundo semi-transparente */
+}
+.navbar .nav-item .nav-link {
+    color: white; /* Cor padrão */
+    transition: 0.3s;
+}
+
+.navbar .nav-item .nav-link.active {
+    background-color: #ff6600; /* Cor diferente quando ativo */
+    color: white;
+    border-radius: 5px;
+}
+
+/* Faz com que os botões do carrossel fiquem mais visíveis */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.5); /* Cor escura nos botões */
+    border-radius: 50%;
+    padding: 10px;
+}
+/* Sobrescreve a cor do título CJ‑Roupas */
+.navbar-brand h1 {
+    color: #7f4f24 !important;  /* Altere para a cor desejada */
+}
+
+/* Altera a cor dos links da navbar, se necessário */
+.navbar .nav-link {
+    color: #7f4f24 !important;
+}
+
+/* Personaliza o botão primário */
+.btn-primary {
+    background-color:  #7f4f24!important;
+    border-color:  #333 !important;
+}
+
+/* Caso queira modificar o botão secundário */
+.btn-secondary {
+    background-color: #7f4f24 !important; /* Exemplo: cinza escuro */
+    border-color: #333 !important;
+}
+
+
+.remove-btn {
+    cursor: pointer;
+    color: black; /* Cor preta */
+    font-weight: bold;
+    font-size: 18px; /* Tamanho do "X" */
+    position: absolute;
+    right: 10px; /* Ajuste a posição para a direita */
+}
+
+.remove-btn:hover {
+    color: darkgray; /* Muda a cor do "X" ao passar o mouse */
+}
+/* Ajusta a posição do histórico de pesquisa para aparecer ao abrir a barra e não sobrepor sugestões */
+
+/* Exibe o histórico ao focar no campo de pesquisa */
+#search-box:focus ~ #search-history {
+    display: block;
+}
+
+/* Oculta o histórico ao começar a digitar */
+#search-box:not(:placeholder-shown) ~ #search-history {
+    display: none;
+}
+
+/* Ajusta as sugestões para ficarem acima do histórico */
+.suggestions-box {
+    position: absolute;
+    top: 55%; /* Garantir que as sugestões fiquem abaixo da barra de pesquisa */
+    width: 100%;
+    max-height: 200px;
+    overflow-y: auto;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    z-index: 100;
+}
+.filters-container {
+    margin: 20px;
+}
+
+.filters-container select {
+    width: 200px;
+    padding: 10px;
+    margin: 10px;
+}
+.logo {
+    width: 150px;  /* Ajuste conforme necessário */
+    height: auto;
+}
+#history-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    border-bottom: 1px solid #ddd;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+  }
+  
+  #history-list li button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    color: #dc3545;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+ .botao {
+  position: relative;
+}
+
+.botao::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  right: 120%; /* Lado direito do botão */
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #333;
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+  font-size: 12px;
+  z-index: 10;
+}
+
+.botao:hover::after {
+  opacity: 1;
+}
+#sugestao {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  width: 320px;
+  margin-left: auto;
+  margin-right: auto;
+}
+#sugestao .produto-item img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 5px;
+}
